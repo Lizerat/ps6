@@ -97,7 +97,7 @@ task WMGame "Web & Mobile Game" {
   responsible boss
 
   task tgdesign "General System Design" {
-	  start ${projectstart}
+	  effort 2d
       inicial:effort 2d
       allocate boss
       depends WMGame.deliveries.start
@@ -128,8 +128,8 @@ task WMGame "Web & Mobile Game" {
       }
     }
     task tbackDev "Back development" {
-	  effort 20d
-      inicial:effort 20d
+	  effort 40d
+      inicial:effort 40d
       allocate dev1, dev2
       depends WMGame.tback.tlogic
     }
@@ -191,8 +191,8 @@ task WMGame "Web & Mobile Game" {
     responsible dev4
     depends WMGame.tback.tBEd
     task tGUI2d "Movil GUI Design" {
-	  effort 1d
-      inicial:effort 1d
+	  effort 3d
+      inicial:effort 3d
       actual:effort 15d
       allocate dev4
 	  journalentry 2024-05-09 "Problems with the GUI design tool" {
@@ -202,8 +202,8 @@ task WMGame "Web & Mobile Game" {
       }
     }
     task tFE2c "Movil Front End Construction" {
-	  effort 1d
-      inicial:effort 1d
+	  effort 2d
+      inicial:effort 2d
       allocate dev2, dev4
       depends WMGame.tMovilF.tGUI2d
     }
@@ -217,8 +217,8 @@ task WMGame "Web & Mobile Game" {
 
   task ttest "Accpetance tests" {
 	  start 2024-06-01
-	  effort 15d
-      inicial:effort 15d
+	  effort 10d
+      inicial:effort 10d
       allocate boss
       allocate dev2
       actual:effort 15d

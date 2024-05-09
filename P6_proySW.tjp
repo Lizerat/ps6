@@ -76,7 +76,7 @@ shift available4h "monday - friday 4h" {
 
 resource dev4 "Lizer Bernad" {
   email "779035@unizar.es"
-  shift available4h
+  shifts available4h
 }
 
 # Now we specify the work packages. The whole project is described as

@@ -343,7 +343,7 @@ taskreport status "" {
           alert { tooltip plan.journal
                           != '' "<-query attribute='journal'->" width 150 },
           status { width 150 }
-  scenarios actual
+  scenarios inicial
 
   taskreport dashboard "" {
     headline "Project Dashboard (<-query attribute='now'->)"
@@ -357,26 +357,26 @@ taskreport status "" {
     journalmode status_up
     journalattributes headline, author, date, summary, details
     hidetask ~hasalert(0)
-    sorttasks alert.down, actual.end.up
+    sorttasks alert.down, inicial.end.up
     period %{${now} - 3w} +3w
   }
   taskreport completed "" {
     headline "Already completed tasks"
-    hidetask ~(actual.end <= ${now})
+    hidetask ~(inicial.end <= ${now})
   }
   taskreport ongoing "" {
     headline "Ongoing tasks"
-    hidetask ~((actual.start <= ${now}) & (actual.end > ${now}))
+    hidetask ~((inicial.start <= ${now}) & (inicial.end > ${now}))
   }
   taskreport future "" {
     headline "Future tasks"
-    hidetask ~(actual.start > ${now})
+    hidetask ~(inicial.start > ${now})
   }
 }
 
 # A list of tasks showing the resources assigned to each task.
 taskreport development "" {
-  scenarios actual
+  scenarios inicial
   headline "Development - Resource Allocation Report"
   columns bsi { title 'WBS' }, name, start, end, effort { title "Work" },
           duration, chart { ${TaskTip} scale day width 500 }
@@ -387,7 +387,7 @@ taskreport development "" {
 
 # A list of all employees with their contact details.
 resourcereport contactList "" {
-  scenarios actual
+  scenarios inicial
   headline "Contact list and duty plan"
   columns name,
           email { celltext 1 "[mailto:<-email-> <-email->]" },
@@ -401,7 +401,7 @@ resourcereport contactList "" {
 # A graph showing resource allocation. It identifies whether each
 # resource is under- or over-allocated for.
 resourcereport resourceGraph "" {
-  scenarios actual
+  scenarios inicial
   headline "Current Resource Allocation Graph"
   columns no, name, effort, rate, weekly { ${TaskTip} }
   loadunit shortauto

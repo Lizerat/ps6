@@ -110,10 +110,12 @@ task WMGame "Web & Mobile Game" {
     depends WMGame.tgdesign
     task tBEd "Back End General Design" {
       # The effort to finish this task is 5 man-days.
+	  effort 5d
       inicial:effort 5d
       allocate dev1
     }
     task tlogic "Game logic" {
+	  effort 12d
       inicial:effort 12d
       actual:effort 11d
       allocate dev1, dev2

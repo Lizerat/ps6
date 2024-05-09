@@ -70,9 +70,13 @@ resource dev3 "Peter Green" {
   email "kkk@unizar.es"
 }
 
+shift available4h "monday - friday 4h" {
+	dailyworkinghours 4
+}
+
 resource dev4 "Lizer Bernad" {
   email "779035@unizar.es"
-  dailyworkinghours 4
+  shift available4h
 }
 
 # Now we specify the work packages. The whole project is described as
@@ -150,7 +154,7 @@ task WMGame "Web & Mobile Game" {
     responsible dev3
     depends WMGame.tback.tBEd
     task tGUId "Web GUI Design" {
-      effort 9d
+      inicial:effort 9d
       actual:effort 15d
       allocate dev3
       journalentry 2024-04-11 "Problems with the GUI design tool" {

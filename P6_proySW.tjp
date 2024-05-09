@@ -127,7 +127,7 @@ task WMGame "Web & Mobile Game" {
       }
     }
     task tbackDev "Back development" {
-      inicial:effort 20d
+      inicial:effort 200d
       allocate dev1, dev2
       depends WMGame.tback.tlogic
     }

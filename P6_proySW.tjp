@@ -312,22 +312,6 @@ textreport frame "" {
   }
 }
 
-# A traditional Gantt chart with a project overview.
-taskreport overview "" {
-  scenarios actual
-  headline "Current Project Plan"
-  columns bsi { title 'WBS' },
-          name, start, end, effort, cost,
-          revenue, chart { ${TaskTip} }
-  # For this report we like to have the abbreviated weekday in front
-  # of the date. %a is the tag for this.
-  timeformat "%a %Y-%m-%d"
-  loadunit days
-  hideresource @all
-  balance cost rev
-  caption 'All effort values are in man days.'
-}
-
 # A traditional Gantt chart with a initial project overview.
 taskreport overview "" {
   scenarios inicial
@@ -343,7 +327,6 @@ taskreport overview "" {
   balance cost rev
   caption 'All effort values are in man days.'
 }
-
 
 # Macro to set the background color of a cell according to the alert
 # level of the task.

@@ -48,6 +48,7 @@ account cost "Project Cost" {
   account wFront "Web Front-End"
   account mFront "Movil Front-End"
   account back "Back-End"
+  account backD "Back-End"
 }
 account rev "Payments"
 # The Profit&Loss analysis should be rev - cost accounts.
